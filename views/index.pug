@@ -1,5 +1,12 @@
 extends default
 
 block content
-    p Hello World!
+    //- div.grid-container 
+    //-     -   for (var x = 1; x < 26; x++)
+    //-             div.grid-item= x
+    div.grid-container
+        -   for(var x = 0; x < items.length; x++)
+                div.grid-item-real(style=`grid-column: ${items[x].position[0]} / span ${items[x].size[0]};grid-row: ${items[x].position[1]} / span ${items[x].size[1]};`)= items[x].content
+        -   for(var x = 1; x < 26 - numBoxes; x++)
+                div.grid-item= x
 
